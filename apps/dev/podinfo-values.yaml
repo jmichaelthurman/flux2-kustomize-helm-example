@@ -6,13 +6,13 @@ metadata:
 spec:
   chart:
     spec:
-      version: ">=1.0.0-beta"
+      version: ">=1.0.0-alpha"
   test:
     enable: false
   values:
     ingress:
       hosts:
-        - host: podinfo.staging
+        - host: podinfo.dev
           paths:
             - path: /
               pathType: ImplementationSpecific
