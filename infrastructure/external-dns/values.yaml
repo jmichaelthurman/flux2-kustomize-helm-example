@@ -1,30 +1,15 @@
 aws:
-    region: ENC[AES256_GCM,data:AGKYUZMmkE3a,iv:dRYAp0nJfjXSGIgdMKJgfY/cktfc9jbtUi2umprlVd8=,tag:CTSwHDm6ToBTNX8wiRC+Cw==,type:str]
-    #ENC[AES256_GCM,data:zATXiN6rdCAwGuxcP51jy0mP,iv:K5qnvLDHmBQHrzROmJiccCOxSsNRgYM0CXlvyE0SHpI=,tag:GOCRYRUN7iX5JuNgasY5MA==,type:comment]
-    zoneType: ENC[AES256_GCM,data:O5Pr5gLJ,iv:Vd/DRalNrdE5WTmmvZ86FNotdxhhGxCoKc1sjxw5qbY=,tag:JMLAIxT7EcrIZvg/YBIiUg==,type:str]
-    evaluateTargetHealth: ENC[AES256_GCM,data:7kpg6g==,iv:zW525Athn/IrFu4ybd/52tVWg6uRaF7uVScetGV9jiM=,tag:i/i9zp0xJaZUhDj5gq8QEg==,type:str]
+    region: us-east-2
+    # public || private
+    zoneType: public
+    evaluateTargetHealth: "true"
     domainFilters:
-        - ENC[AES256_GCM,data:Id3oq3k297KyAjHjxCI2uG0mBvxnlbLRvks7,iv:lQ87cshnXD7PnDjgjdMmXDho3XnzehEdfuqUbdUo9wg=,tag:gVPeWdwwzC4XzEnh63ibEg==,type:comment]
-        - ENC[AES256_GCM,data:EaKmEYnXCGA+VFzMecXhRJmW,iv:efoCHSQ14Fsog9j/WJK4tO57/UvhrWIqCEWaa0DiDx0=,tag:TT69RrZCm/hSNONV2uU1WQ==,type:str]
-        - ENC[AES256_GCM,data:CeUn83+G5r2SPbZ+AX7/56+qtWMNOcIJNeQ6C02HTEpdI3HPRrZcm0DRwezhHevbEJFZrA==,iv:8sEbYFp42a1FZVIK6Yqh15q99zQ7rXyfG0zEZCMxkHM=,tag:P/kPV5m9kzeNclLLGAAwgg==,type:comment]
+        #"production.gettelevet.com"
+        - goodbyecubicle.com
+        #- txtOwnerId: "external-dns-goodbyecubicle-managed" 
     serviceAccount:
-        name: ENC[AES256_GCM,data:HhrVo7sxlp8mI5HP,iv:30maRShSL1vAqLjdDx+q5wNETZq+u2WZsFjmIBYuK+Y=,tag:H4dZH5Nf5vf3kWPLv4NVzw==,type:str]
-        namespace: ENC[AES256_GCM,data:roBaG+IuzYPrRi7S,iv:6FEWUk3KxwoIq6svIfeIYgepYa05tNdO/Qo+zxxolq8=,tag:Cg10jv3Nyzovk/qPi99MYg==,type:str]
+        name: external-dns
+        namespace: external-dns
         annotations:
-            #ENC[AES256_GCM,data:+JijPeiDT9YeYnS6LqzdreTcnmB+0TQUEf9Xa73yTh74fGFHYn3FTMmZ0NjHQbjdu0Os7HcGtw+41JfX,iv:Ca910y8JI2zMTFsGUFpU86ZLBFBBGkZHDtnAHY0rfA8=,tag:XlWNjndRR7YLrfMC/gIyYw==,type:comment]
-            eks.amazonaws.com/role-arn: ENC[AES256_GCM,data:VkYfeGJ51ZaQyrib7c1Lpj3eOR2paz++xgWv8XG6WA9nxEjmBCr3SNPoCG1QkEiFgrdMlTR8,iv:NEommVl+HIxtPKmlW5MWVYiJCpIi0kzHBmmmnRAcfTY=,tag:3qg770Kw5F2ynpcaf14hUQ==,type:str]
-sops:
-    kms:
-        - arn: arn:aws:kms:us-east-2:602955111154:key/734f91d4-601e-4349-b55c-e10b58be774d
-          created_at: "2021-11-10T22:11:08Z"
-          enc: AQICAHig9aTnnBlo40u7U4cDsE7CCzxtq3EjqMQULcchef+QlwHfCnvdjXQ5G3d09AJDH+O6AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMOqCq+FqS1x3OPAqvAgEQgDsTtMLc2cmJwqBViiFDRa8IdUvFi89M8WJNz6lI9R8JTIIrsJtfjXoELakE3zSpg/ML6/j23z5Kc+VJxA==
-          aws_profile: ""
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age: []
-    lastmodified: "2021-11-10T22:11:08Z"
-    mac: ENC[AES256_GCM,data:0PWgE1kPTizJSk84nWpGOEo6sC/l+d6eqSkeGe4UkRbK1vu7pTSDdcxItGuEvIiehocNQUy92/GR4/s93AdMiyT41wZeONf+KR37MtnS+8Q+WEy9NV5lpGM8ddFW8Eqe3ZZbSYYM9SGnM9FFBEEJx9O1yjDUurA/qXDJDaTuYTE=,iv:AgrHCPQdB86bI1GR0eLs5XYgG5o6iohPsO0nOdMg570=,tag:8TqIDiR6uDWgDkHufdj9Sw==,type:str]
-    pgp: []
-    unencrypted_suffix: _unencrypted
-    version: 3.7.1
+            # Substitute your account ID and IAM service role name below.
+            eks.amazonaws.com/role-arn: arn:aws:iam::602955111154:role/dev-gitlab-external-dns

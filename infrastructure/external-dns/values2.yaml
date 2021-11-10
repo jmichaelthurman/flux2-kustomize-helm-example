@@ -1,3 +1,16 @@
+#included in .gitingore
 aws:
-  region: us-east-2 
-  
+  region: us-east-2
+    # public || private
+  zoneType: public
+  evaluateTargetHealth: "true"
+  domainFilters:
+        #"production.gettelevet.com"
+    - goodbyecubicle.com
+        #- txtOwnerId: "external-dns-goodbyecubicle-managed" 
+  serviceAccount:
+    name: external-dns
+    namespace: external-dns
+    annotations:
+      # Substitute your account ID and IAM service role name below.
+      eks.amazonaws.com/role-arn: arn:aws:iam::602955111154:role/dev-gitlab-external-dns

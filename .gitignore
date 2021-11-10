@@ -14,5 +14,5 @@
 bin/
 scripts/bootstrap.sh
 scratch.md
-
+infrastructure/external-dns/values2.yaml
 
