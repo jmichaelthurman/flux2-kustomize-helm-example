@@ -1,0 +1,15 @@
+ingressShim:
+    defaultIssuerKind: ClusterIssuer
+    defaultIssuerName: letsencrypt-prod
+prometheus:
+  enabled: true
+  servicemonitor:
+    enabled: true
+    prometheusInstance: Prometheus
+
+
+# challenge in work queue no longer exists 
+# cert-manager.io staff calls this msg "benign"
+# cf. https://github.com/jetstack/cert-manager/issues/2106 
+#
+#

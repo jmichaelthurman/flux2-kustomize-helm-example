@@ -5,3 +5,4 @@ resources:
   - nginx
   - redis
   - ingress-nginx
+  - cert-manager
