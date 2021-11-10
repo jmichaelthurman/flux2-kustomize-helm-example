@@ -3,7 +3,12 @@ export NAMESPACE="cert-manager" &&
 export RELEASE="cert-manager" && 
 export CHART="jetstack/cert-manager" &&
 
-kubectl get helmrelease/$NAME-n $NAMESPACE -o yaml | yq .spec.values -y | helm upgrade -i $RELEASE -f - $CHART -n $NAMESPACE --set installCRDs=true
+export NAME="external-dns" &&
+export NAMESPACE="external-dns" &&
+export RELEASE="external-dns" && 
+export CHART="bitnami/external-dns" &&
+
+kubectl get helmrelease/$NAME-n $NAMESPACE -o yaml | yq .spec.values -y | helm upgrade -i $RELEASE -f - $CHART -n $NAMESPACE #--set installCRDs=true
 
 
 crds=(
