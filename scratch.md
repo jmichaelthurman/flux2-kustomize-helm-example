@@ -23,3 +23,11 @@ cert-manager-webhook:subjectaccessreviews)
 for t in ${crds[@]}; do
   kc delete clusterrole $t
 done
+
+
+eksctl create iamserviceaccount \
+--override-existing-serviceaccounts \
+--name=kustomize-controller \
+--namespace=flux-system \
+--attach-role-arn="arn:aws:iam::602955111154:role/aws-service-role/cks.kms.amazonaws.com/AWSServiceRoleForKeyManagementServiceCustomKeyStores" \
+--cluster=dev-gitlab

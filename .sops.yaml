@@ -1,0 +1,9 @@
+creation_rules:
+    - path_regex: \.dev\.yaml$
+      kms: arn:aws:kms:us-east-2:602955111154:key/734f91d4-601e-4349-b55c-e10b58be774d
+    - path_regex: \.staging\.yaml$
+      kms: arn:aws:kms:us-west-2:602955111154:key/ed826015-02d5-43d2-8c9d-a392bf1b5fafarn:aws:kms:us-east-2:400390564163:key/cdc08b02-617c-4f7f-8f72-3e864e820244
+    - path_regex: \.production\.yaml$
+      kms: arn:aws:kms:us-west-2:602955111154:key/ed826015-02d5-43d2-8c9d-a392bf1b5fafarn:aws:kms:us-east-2:400390564163:key/740622a8-42f6-40d9-a839-31b586319c77
+    # Default to dev key
+    - kms: arn:aws:kms:us-east-2:602955111154:key/734f91d4-601e-4349-b55c-e10b58be774d

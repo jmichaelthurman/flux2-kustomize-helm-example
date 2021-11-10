@@ -19,21 +19,8 @@ spec:
       retries: 3
   # Default values
   # https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml
-  values:
-    aws:
-      region: "us-east-2"
-      zoneType: "public" # public || private
-      evaluateTargetHealth: "true"
+  valuesFrom:
+    - kind: ConfigMap
+      name: external-dns-values
 
-    domainFilters:
-    - "goodbyecubicle.com" #"production.gettelevet.com"
-    #- txtOwnerId: "external-dns-goodbyecubicle-managed" 
-
-    serviceAccount:
-      name: external-dns
-      namespace: external-dns
-      annotations:
-        # Substitute your account ID and IAM service role name below.
-        eks.amazonaws.com/role-arn: "arn:aws:iam::602955111154:role/dev-gitlab-external-dns" 
-
-      #https://oidc.eks.us-east-2.amazonaws.com/id/428063A53041CAED1AE7F0826BCCB93B
+ 
