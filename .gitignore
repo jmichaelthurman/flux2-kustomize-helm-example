@@ -12,3 +12,5 @@
 *.out
 
 bin/
+scripts/bootstrap.sh
+
