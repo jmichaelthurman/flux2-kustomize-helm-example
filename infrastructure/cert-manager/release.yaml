@@ -17,6 +17,15 @@ spec:
   install:
     remediation:
       retries: 3
-  valuesFrom:
-    - kind: ConfigMap
-      name: cert-manager-values
+  # valuesFrom:
+  #   - kind: ConfigMap
+  #     name: cert-manager-values
+  values:
+    ingressShim:
+      defaultIssuerKind: ClusterIssuer
+      defaultIssuerName: letsencrypt-prod
+    # prometheus:
+    #   enabled: true
+    #   servicemonitor:
+    #     enabled: true
+    #     prometheusInstance: Prometheus
