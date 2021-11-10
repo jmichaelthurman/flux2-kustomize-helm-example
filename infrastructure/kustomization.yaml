@@ -5,5 +5,5 @@ resources:
   - nginx
   - redis
   - ingress-nginx
-  - cert-manager
-  - external-dns
+  #- cert-manager
+  #- external-dns
