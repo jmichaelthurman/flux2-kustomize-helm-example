@@ -30,7 +30,7 @@ spec:
 
     serviceAccount:
       name: external-dns
-      namespace: kube-system
+      namespace: external-dns
       annotations:
         # Substitute your account ID and IAM service role name below.
         eks.amazonaws.com/role-arn: "arn:aws:iam::602955111154:role/dev-gitlab-external-dns" 
