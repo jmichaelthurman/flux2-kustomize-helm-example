@@ -8,6 +8,11 @@ export NAMESPACE="external-dns" &&
 export RELEASE="external-dns" && 
 export CHART="bitnami/external-dns" &&
 
+export NAME="kube-prometheus-stack" &&
+export NAMESPACE="monitoring" &&
+export RELEASE="kube-prometheus-stack" && 
+export CHART="prometheus-community/kube-prometheus-stack" &&
+
 kubectl get helmrelease/$NAME-n $NAMESPACE -o yaml | yq .spec.values -y | helm upgrade -i $RELEASE -f - $CHART -n $NAMESPACE #--set installCRDs=true
 
 
