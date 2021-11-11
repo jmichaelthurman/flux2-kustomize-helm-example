@@ -20,5 +20,5 @@ spec:
       retries: 5
   # Default values
   # https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml
-  values:
+  #values:
     
