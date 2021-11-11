@@ -5,4 +5,7 @@ resources:
   - bitnami.yaml
   - podinfo.yaml
   - ingress-nginx.yaml
+  - jetstack.yaml
+  - prometheus-community.yaml
+
   

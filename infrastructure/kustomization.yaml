@@ -1,11 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - sources
+  - ./sources
  # - nginx
-  - redis
-  - ingress-nginx
-  - cert-manager
+  - ./redis
+  - ./ingress-nginx
+  - ./cert-manager
   # - external-dns
  # - kube-prometheus-stack
 
