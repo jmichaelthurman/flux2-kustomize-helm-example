@@ -18,15 +18,6 @@ spec:
     timeout: 10m 
     remediation:
       retries: 3
-  # valuesFrom:
-  #   - kind: ConfigMap
-  #     name: cert-manager-values
-  values:
-    ingressShim:
-      defaultIssuerKind: ClusterIssuer
-      defaultIssuerName: letsencrypt-prod
-    prometheus:
-      enabled: true
-      servicemonitor:
-        enabled: true
-        prometheusInstance: Prometheus
+  valuesFrom:
+    - kind: ConfigMap
+      name: cert-manager-values

@@ -1,11 +1,11 @@
-# ingressShim:
-#     defaultIssuerKind: ClusterIssuer
-#     defaultIssuerName: letsencrypt-prod
-# prometheus:
-#   enabled: true
-#   servicemonitor:
-#     enabled: true
-#     prometheusInstance: Prometheus
+ingressShim:
+    defaultIssuerKind: ClusterIssuer
+    defaultIssuerName: letsencrypt-prod
+prometheus:
+  enabled: true
+  servicemonitor:
+    enabled: true
+    prometheusInstance: Prometheus
 
 
 # challenge in work queue no longer exists 
