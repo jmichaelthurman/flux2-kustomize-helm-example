@@ -16,6 +16,7 @@ spec:
       version: "4.0.6"
   interval: 1h0m0s
   install:
+    timeout: 15m
     remediation:
       retries: 5
   # Default values
