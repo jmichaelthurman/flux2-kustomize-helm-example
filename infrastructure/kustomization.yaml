@@ -6,6 +6,6 @@ resources:
   - ./redis
   - ./ingress-nginx
   - ./cert-manager
-  # - external-dns
+  - ./external-dns
  # - kube-prometheus-stack
 
