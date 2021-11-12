@@ -6,7 +6,8 @@ metadata:
 spec:
   acme:
     # The ACME server URL
-    server: https://acme-prod-v02.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory
+    preferredChain: "ISRG Root X1"
     # Email address used for ACME registration
     email: michael@moonswitch.com
     # Name of a secret used to store the ACME account private key
