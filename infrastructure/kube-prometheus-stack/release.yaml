@@ -7,7 +7,7 @@ spec:
   releaseName: mon
   chart:
     spec:
-      chart: mon
+      chart: kube-prometheus-stack
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
