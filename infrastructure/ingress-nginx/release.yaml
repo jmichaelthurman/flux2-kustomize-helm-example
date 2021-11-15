@@ -41,15 +41,15 @@ spec:
           }
 
         #30x default of 320
-  publishService:
-    enabled: true
-  admissionWebhooks:
-    enabled: true
-  
+    publishService:
+      enabled: true
+    admissionWebhooks:
+      enabled: true
+    
   # This section refers to the creation of the IngressClass resource
   # IngressClass resources are supported since k8s >= 1.18 and required since k8s >= 1.19
-  ingressClassResource:
-    name: nginx
-    enabled: true
-    controllerValue: "k8s.io/ingress-nginx"
+    ingressClassResource:
+      name: nginx
+      enabled: true
+      controllerValue: "k8s.io/ingress-nginx"
 
