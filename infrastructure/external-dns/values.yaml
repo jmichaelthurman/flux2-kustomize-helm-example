@@ -5,8 +5,8 @@ aws:
   evaluateTargetHealth: "true"
   domainFilters:
     #"production.gettelevet.com"
-    - goodbyecubicle.com
-    #- txtOwnerId: "external-dns-goodbyecubicle-managed" 
+    - "tools.goodbyecubicle.com"
+    - txtOwnerId: "external-dns-tools-goodbyecubicle-managed" 
   serviceAccount:
     name: external-dns
     namespace: external-dns
