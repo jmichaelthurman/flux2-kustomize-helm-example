@@ -4,7 +4,7 @@ resources:
   - ./sources
  # - nginx
   - ./redis
-  # - ./ingress-nginx
+  - ./ingress-nginx
   - ./cert-manager
   - ./external-dns
  # - ./kube-prometheus-stack
