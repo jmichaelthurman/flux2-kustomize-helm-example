@@ -996,7 +996,7 @@ grafana:
     ## If true, Grafana Ingress will be created
     ##
     enabled: true
-
+    ingressClassName: nginx
     # Annotations for Grafana Ingress
     ##
     annotations: 
