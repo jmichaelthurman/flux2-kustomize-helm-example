@@ -7,6 +7,6 @@ resources:
   #- ./ingress-nginx  -- managing w/ manifest
   - ./cert-manager
   - ./external-dns
-  #- ./kube-prometheus-stack
+  - ./kube-prometheus-stack
 
  
