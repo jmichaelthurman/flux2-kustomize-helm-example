@@ -1,38 +1,52 @@
 
-prometheus:
-  ingress:
-    ## If true, Grafana Ingress will be created
-    ##
-    enabled: true
+#https://github.com/prometheus-community/helm-charts/issues/108
+prometheusOperator:
+  admissionWebhooks:
+    enabled: false
+    patch: 
+      enabled: false
+  tlsProxy: 
+    enabled: false
+  certManager:
+    enabled: false
+      # issuerRef:
+      #   name: "letsencrypt-prod"
+      #   kind: "ClusterIssuer"
 
-    # Annotations for Grafana Ingress
-    ##
-    annotations: 
-      kubernetes.io/ingress.class: nginx
-      cert-manager.io/cluster-issuer: "letsencrypt-prod"
-      external-dns.alpha.kubernetes.io/hostname: tools-uyf4npjz7g-7-m4te3vbejc5raj9-6juzzz6.goodbyecubicle.com
-    ## Labels to be added to the Ingress
-    ##
-    labels: {}
+#prometheus:
+  # ingress:
+  #   ## If true, Grafana Ingress will be created
+  #   ##
+  #   enabled: true
 
-    ## Hostnames.
-    ## Must be provided if Ingress is enable.
-    ##
-    hosts:
-    - tools-uyf4npjz7g-7-m4te3vbejc5raj9-6juzzz6.goodbyecubicle.com
+  #   # Annotations for Grafana Ingress
+  #   ##
+  #   annotations: 
+  #     kubernetes.io/ingress.class: nginx
+  #     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  #     external-dns.alpha.kubernetes.io/hostname: tools-uyf4npjz7g-7-m4te3vbejc5raj9-6juzzz6.goodbyecubicle.com
+  #   ## Labels to be added to the Ingress
+  #   ##
+  #   labels: {}
+
+  #   ## Hostnames.
+  #   ## Must be provided if Ingress is enable.
+  #   ##
+  #   hosts:
+  #   - tools-uyf4npjz7g-7-m4te3vbejc5raj9-6juzzz6.goodbyecubicle.com
     
-       ## Path for grafana ingress
-    path: /
+  #      ## Path for grafana ingress
+  #   path: /
 
-    ## TLS configuration for grafana Ingress
-    ## Secret must be manually created in the namespace
-    ##
-    tls:
-    - hosts:
-      - tools-uyf4npjz7g-7-m4te3vbejc5raj9-6juzzz6.goodbyecubicle.com 
-      secretName: nginx-tls
+  #   ## TLS configuration for grafana Ingress
+  #   ## Secret must be manually created in the namespace
+  #   ##
+  #   tls:
+  #   - hosts:
+  #     - tools-uyf4npjz7g-7-m4te3vbejc5raj9-6juzzz6.goodbyecubicle.com 
+  #     secretName: nginx-tls
 
-  additionalPrometheusRulesMap:
+  # additionalPrometheusRulesMap:
     # rule-name:
     #   groups:
     #   - name: prometheus-self-monitoring
@@ -976,87 +990,87 @@ prometheus:
   #           summary: Kubernetes API server latency (instance {{ $labels.instance }})
   #           description: "Kubernetes API server has a 99th percentile latency of {{ $value }} seconds for {{ $labels.verb }} {{ $labels.resource }}.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"    
 
-grafana:
-  ingress:
-    ## If true, Grafana Ingress will be created
-    ##
-    enabled: true
+# grafana:
+#   ingress:
+#     ## If true, Grafana Ingress will be created
+#     ##
+#     enabled: true
 
-    # Annotations for Grafana Ingress
-    ##
-    annotations: 
-      kubernetes.io/ingress.class: nginx
-      cert-manager.io/cluster-issuer: "letsencrypt-prod"
-      external-dns.alpha.kubernetes.io/hostname: grafana.tools.goodbyecubicle.com
-    ## Labels to be added to the Ingress
-    ##
-    labels: {}
+#     # Annotations for Grafana Ingress
+#     ##
+#     annotations: 
+#       kubernetes.io/ingress.class: nginx
+#       cert-manager.io/cluster-issuer: "letsencrypt-prod"
+#       external-dns.alpha.kubernetes.io/hostname: grafana.tools.goodbyecubicle.com
+#     ## Labels to be added to the Ingress
+#     ##
+#     labels: {}
 
-    ## Hostnames.
-    ## Must be provided if Ingress is enable.
-    ##
-    hosts:
-    - grafana.tools.goodbyecubicle.com
+#     ## Hostnames.
+#     ## Must be provided if Ingress is enable.
+#     ##
+#     hosts:
+#     - grafana.tools.goodbyecubicle.com
     
-       ## Path for grafana ingress
-    path: /
+#        ## Path for grafana ingress
+#     path: /
 
-    ## TLS configuration for grafana Ingress
-    ## Secret must be manually created in the namespace
-    ##
-    tls:
-    - hosts:
-      - grafana.tools.goodbyecubicle.com 
-      secretName: nginx-tls
+#     ## TLS configuration for grafana Ingress
+#     ## Secret must be manually created in the namespace
+#     ##
+#     tls:
+#     - hosts:
+#       - grafana.tools.goodbyecubicle.com 
+#       secretName: nginx-tls
      
-alertmanager:
-  enabled: true
-  podDisruptionBudget:
-    enabled: true 
-  config:
-   route:
-   receiver: 'freshservice'
-   routes:
-   - match:
-      alertname: Watchdog 
-      receiver: 'freshservice'
-  receivers:
-  - name: 'null'
-  - name: 'freshservice'
-    webhook_configs:
-      send_resolved: true
-      url: 'https://moonswitch.alerts.freshservice.com/alert_profiles/3093/integrations/2189/alerts'     
-      http_config:
-        type: Bearer
-        credentials: 'eyJhbGciOiJIUzI1NiJ9.eyJhX2lkIjo0MDQxLCJhcF9pZCI6MzA5Mywic19pZCI6NSwidHMiOjE2MzA3MDM5MzMuMTkzMDI5Nn0.CCcUFixt04pnHt8VxdaX_0xR2e8k7l7d4XbBBX7n-AU' 
-  ingress:
-    ## If true, Grafana Ingress will be created
-    ##
-    enabled: true
+# alertmanager:
+#   enabled: true
+#   podDisruptionBudget:
+#     enabled: true 
+#   config:
+#    route:
+#    receiver: 'freshservice'
+#    routes:
+#    - match:
+#       alertname: Watchdog 
+#       receiver: 'freshservice'
+#   receivers:
+#   - name: 'null'
+#   - name: 'freshservice'
+#     webhook_configs:
+#       send_resolved: true
+#       url: 'https://moonswitch.alerts.freshservice.com/alert_profiles/3093/integrations/2189/alerts'     
+#       http_config:
+#         type: Bearer
+#         credentials: 'eyJhbGciOiJIUzI1NiJ9.eyJhX2lkIjo0MDQxLCJhcF9pZCI6MzA5Mywic19pZCI6NSwidHMiOjE2MzA3MDM5MzMuMTkzMDI5Nn0.CCcUFixt04pnHt8VxdaX_0xR2e8k7l7d4XbBBX7n-AU' 
+#   ingress:
+#     ## If true, Grafana Ingress will be created
+#     ##
+#     enabled: true
 
-    # Annotations for Grafana Ingress
-    ##
-    annotations: 
-      kubernetes.io/ingress.class: nginx
-      cert-manager.io/cluster-issuer: "letsencrypt-prod"
-      external-dns.alpha.kubernetes.io/hostname: tools-am.goodbyecubicle.com
-    ## Labels to be added to the Ingress
-    ##
-    labels: {}
+#     # Annotations for Grafana Ingress
+#     ##
+#     annotations: 
+#       kubernetes.io/ingress.class: nginx
+#       cert-manager.io/cluster-issuer: "letsencrypt-prod"
+#       external-dns.alpha.kubernetes.io/hostname: tools-am.goodbyecubicle.com
+#     ## Labels to be added to the Ingress
+#     ##
+#     labels: {}
 
-    ## Hostnames.
-    ## Must be provided if Ingress is enable.
-    ##
-    hosts:
-    - tools-am.goodbyecubicle.com
+#     ## Hostnames.
+#     ## Must be provided if Ingress is enable.
+#     ##
+#     hosts:
+#     - tools-am.goodbyecubicle.com
     
-       ## Path for grafana ingress
-    path: /
+#        ## Path for grafana ingress
+#     path: /
 
-    ## TLS configuration for grafana Ingress
-    ## Secret must be manually created in the namespace
-    ##
-    tls:
-    - hosts:
-      - tools-am.goodbyecubicle.com 
-      secretName: nginx-tls
+#     ## TLS configuration for grafana Ingress
+#     ## Secret must be manually created in the namespace
+#     ##
+#     tls:
+#     - hosts:
+#       - tools-am.goodbyecubicle.com 
+#       secretName: nginx-tls
