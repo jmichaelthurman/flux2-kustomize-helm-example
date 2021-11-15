@@ -1024,26 +1024,26 @@ grafana:
       - grafana.tools.goodbyecubicle.com 
       secretName: nginx-tls
      
-# alertmanager:
-#   enabled: true
-#   podDisruptionBudget:
-#     enabled: true 
-#   config:
-#    route:
-#    receiver: 'freshservice'
-#    routes:
-#    - match:
-#       alertname: Watchdog 
-#       receiver: 'freshservice'
-#   receivers:
-#   - name: 'null'
-#   - name: 'freshservice'
-#     webhook_configs:
-#       send_resolved: true
-#       url: 'https://moonswitch.alerts.freshservice.com/alert_profiles/3093/integrations/2189/alerts'     
-#       http_config:
-#         type: Bearer
-#         credentials: 'eyJhbGciOiJIUzI1NiJ9.eyJhX2lkIjo0MDQxLCJhcF9pZCI6MzA5Mywic19pZCI6NSwidHMiOjE2MzA3MDM5MzMuMTkzMDI5Nn0.CCcUFixt04pnHt8VxdaX_0xR2e8k7l7d4XbBBX7n-AU' 
+alertmanager:
+  enabled: true
+  podDisruptionBudget:
+    enabled: true 
+  config:
+   route:
+   receiver: 'freshservice'
+   routes:
+   - match:
+      alertname: Watchdog 
+      receiver: 'freshservice'
+  receivers:
+  - name: 'null'
+  - name: 'freshservice'
+    webhook_configs:
+      send_resolved: true
+      url: 'https://moonswitch.alerts.freshservice.com/alert_profiles/3093/integrations/2189/alerts'     
+      http_config:
+        type: Bearer
+        credentials: 'eyJhbGciOiJIUzI1NiJ9.eyJhX2lkIjo0MDQxLCJhcF9pZCI6MzA5Mywic19pZCI6NSwidHMiOjE2MzA3MDM5MzMuMTkzMDI5Nn0.CCcUFixt04pnHt8VxdaX_0xR2e8k7l7d4XbBBX7n-AU' 
 #   ingress:
 #     ## If true, Grafana Ingress will be created
 #     ##
