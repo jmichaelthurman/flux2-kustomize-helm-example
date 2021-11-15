@@ -977,6 +977,7 @@ prometheus:
             description: "Kubernetes API server has a 99th percentile latency of {{ $value }} seconds for {{ $labels.verb }} {{ $labels.resource }}.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"    
 
 grafana:
+  adminPassword: PrometheusTargetMissing
   ingress:
     ## If true, Grafana Ingress will be created
     ##

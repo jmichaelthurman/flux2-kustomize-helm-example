@@ -8,6 +8,6 @@ configMapGenerator:
   - name: kps-values
     files:
       - values.yaml=values.yaml
-      - secrets.yaml=secrets.yaml 
+      # - secrets.yaml=secrets.yaml 
 configurations:
   - kustomizeconfig.yaml
