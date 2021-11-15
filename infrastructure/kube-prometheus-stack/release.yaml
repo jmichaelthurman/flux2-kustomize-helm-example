@@ -18,6 +18,6 @@ spec:
     timeout: 15m 
     remediation:
       retries: 10
-  # valuesFrom:
-  # - kind: ConfigMap
-  #   name: kps-values
+  valuesFrom:
+  - kind: ConfigMap
+    name: kps-values
