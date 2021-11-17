@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: monitoring
+resources:
+- namespace.yaml
+- helm.yaml
+- kustomizeconfig.yaml
+configMapGenerator:
+  - name: monitoring-values
+    behavior: merge
+    files:
+      - values.yaml=values.yaml
+secretGenerator:
+  - name: monitoring-secrets
+    files: 
+    - values.yaml=secrets.yaml
+configurations:
+  - kustomizeconfig.yaml
