@@ -6,8 +6,9 @@ resources:
   - release.yaml
 configMapGenerator:
   - name: kps-values
+    behavior: merge
     files:
       - values.yaml=values.yaml
-      # - secrets.yaml=secrets.yaml 
+      - values.yaml=secrets.yaml 
 configurations:
   - kustomizeconfig.yaml
